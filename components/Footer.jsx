@@ -4,7 +4,9 @@ export default function Footer() {
   return (
     <footer className="min-h-[173px] relative">
       <Image src={im} alt="gfod" className="w-full h-full z-[-1] absolute"/>
-      
+      <div className="w-full flex items-center justify-between">
+        
+      </div>
     </footer>
   )
 }
