@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
+import hm from "@/public/hm.svg"
 export default function Footer() {
   return (
     <footer className="min-h-[173px] bg-[#012D26] w-full flex items-center justify-between px-[100px]">
