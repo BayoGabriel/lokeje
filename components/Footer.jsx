@@ -4,7 +4,8 @@ import Link from "next/link";
 import hm from "@/public/hm.svg"
 export default function Footer() {
   return (
-    <footer className="min-h-[173px] bg-[#012D26] w-full flex items-center justify-between px-[100px]">
+    <footer className="min-h-[173px] bg-[#012D26] relative w-full flex items-center justify-between px-[100px]">
+      <Image src={hm} alt="tudgv" className="absolute left-0 top-0"/>
       <div className="flex items-center gap-6">
         <span className="text-white text-[20px]">
         © 2025  Lokraft.com Ltd. All rights reserved.
