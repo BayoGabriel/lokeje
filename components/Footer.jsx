@@ -19,6 +19,9 @@ export default function Footer() {
         <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
           <FaXTwitter />
         </Link>
+        <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
+          <FaXTwitter />
+        </Link>
       </div>
     </footer>
   )
