@@ -20,13 +20,13 @@ export default function Footer() {
           <FaXTwitter />
         </Link>
         <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
-          <FaXTwitter />
+          <FaGoogle />
+        </Link>
+        <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
+          <FaGoogle />
         </Link>
       </div>
     </footer>
   )
 }
 
-GIT_COMMITTER_DATE="2023-01-12T12:00:00" \
-GIT_AUTHOR_DATE="2023-01-12T12:00:00" \
-git commit -m "V1.0"
