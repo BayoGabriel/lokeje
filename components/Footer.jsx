@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import hm from "@/public/hm.svg"
+import { FaGoogle } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="min-h-[173px] bg-[#012D26] relative w-full flex items-center justify-between px-[100px]">
@@ -23,7 +25,7 @@ export default function Footer() {
           <FaGoogle />
         </Link>
         <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
-          <FaGoogle />
+          <FaFacebookF />
         </Link>
       </div>
     </footer>
