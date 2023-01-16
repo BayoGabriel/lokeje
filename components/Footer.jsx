@@ -3,6 +3,8 @@ import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import hm from "@/public/hm.svg"
 import { FaGoogle } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -26,6 +28,12 @@ export default function Footer() {
         </Link>
         <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
           <FaFacebookF />
+        </Link>
+        <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
+          <IoLogoInstagram />
+        </Link>
+        <Link href="" className="rounded-full border-white text-white border p-2 flex items-center justify-center">
+          <FaLinkedinIn />
         </Link>
       </div>
     </footer>
