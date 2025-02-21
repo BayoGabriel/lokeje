@@ -26,6 +26,7 @@
 }
 .wait {
   background-image: url(../public/rect.svg);
+  background-repeat: no-repeat;
 }
 
 /* Smooth scrolling */
