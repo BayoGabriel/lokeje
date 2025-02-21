@@ -1,7 +1,7 @@
 import Exist from '@/components/Exist'
-import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import HowItWorks from '@/components/HowItWorks'
+import WaitlistForm from '@/components/Waitlist'
 import React from 'react'
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
       <Hero/>
       <Exist/>
       <HowItWorks/>
-      <Footer/>
+      <WaitlistForm/>
     </div>
   )
 }

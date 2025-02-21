@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="">
-      <body className={`flex flex-col`}>
+      <body className={``}>
         <Navigation/>
         {children}
         <Footer/>

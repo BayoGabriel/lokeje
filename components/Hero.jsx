@@ -6,10 +6,11 @@ import two from "@/public/2.svg"
 import three from "@/public/3.svg"
 import four from "@/public/4.svg"
 import five from "@/public/5.svg"
+import Link from 'next/link'
 
 const Hero = () => {
   return (
-    <div className='flex flex-col w-full min-h-screen'>
+    <div className='flex flex-col w-full min-h-screen my-10'>
       <div className="w-full flex flex-col items-center justify-center gap-4 my-10">
         <h1 className='text-[114px] text-[#282928] tracking-[0px] font-bold text-center leading-[1em] max-md:text-[60px] max-sm:text-[45px]'>
           Find A Trusted <br /> <span className='text-[#02846B]'>Tailor</span> Near You!
@@ -17,9 +18,9 @@ const Hero = () => {
         <p className="text-[22px] max-w-[478px] text-center leading-[33px] text-[#282928] tracking-[0] max-md:text-[18px] max-sm:text-[16px]">
           Tired of unreliable artisans, inconsistent work quality, or missed deadlines? Hire verified skilled workers in 3 minutes and 5 clicks.
         </p>
-        <button className="bg-[#F9A607] px-8 py-3 rounded-[10px] text-white max-sm:px-6 max-sm:py-2">Get Started</button>
+        <Link href="#waitlist" className="bg-[#F9A607] px-8 py-3 rounded-[10px] text-white max-sm:px-6 max-sm:py-2">Get Started</Link>
       </div>
-      <div className="w-full px-[80px] mt-[200px] max-md:px-[40px] max-sm:px-[20px]">
+      <div className="w-full px-[80px] mt-[250px] max-md:px-[40px] max-sm:px-[20px]">
         <div className="w-full relative">
           <Image src={greenbg} alt="greenbg" className="w-full object-contain"/>
           <Image src={heroImage} alt="her" className='absolute bottom-0 max-md:w-[80%] max-md:left-[50%] max-md:translate-x-[-50%]'/>
