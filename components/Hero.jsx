@@ -11,7 +11,7 @@ import Link from 'next/link'
 const Hero = () => {
   return (
     <div className='flex flex-col w-full min-h-screen my-10'>
-      <div className="w-full flex flex-col items-center justify-center gap-4 my-10">
+      <div className="w-full flex flex-col items-center justify-center gap-8 my-10">
         <h1 className='text-[114px] text-[#282928] tracking-[0px] font-bold text-center leading-[1em] max-md:text-[60px] max-sm:text-[45px]'>
           Find A Trusted <br /> <span className='text-[#02846B]'>Tailor</span> Near You!
         </h1>
