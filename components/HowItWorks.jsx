@@ -1,3 +1,8 @@
+import w1 from "@/public/w1.svg"
+import w2 from "@/public/w2.svg"
+import w3 from "@/public/w3.svg"
+import Image from "next/image"
+
 export default function HowItWorks() {
     return (
       <div className="w-full flex flex-col items-center justify-center my-20 px-[80px] max-lg:px-2 max-lg:my-4">
@@ -13,8 +18,10 @@ export default function HowItWorks() {
               <p className="font-medium text-[20px] max-lg:text-[10px]">Tell Us What You Need</p>
               <p className="text-[14px] mt-2 opacity-90">Share the details of your project or service requirements.</p>
             </div>
-           <div className="w-full flex justify-end">
-           <div className="mt-4 h-20 w-20 rounded-full bg-white/20" />
+           <div className="w-full flex justify-end max-md:justify-center">
+           <div className="mt-4 h-20 w-20 rounded-full bg-white/20 flex items-center justify-center p-2" >
+            <Image src={w1} alt="t"/>
+           </div>
            </div>
           </div>
   
@@ -25,9 +32,11 @@ export default function HowItWorks() {
               <p className="font-medium text-[20px] max-lg:text-[10px]">Get Matched Instantly</p>
               <p className="text-sm mt-2 opacity-90 max-lg:text-[8px] text-[14px]">We'll connect you with the best artisan for the job in your area.</p>
             </div>
-            <div className="w-full flex justify-end">
-              <div className="mt-4 h-20 w-20 rounded-full bg-white/20" />
-            </div>
+            <div className="w-full flex justify-end max-md:justify-center">
+           <div className="mt-4 h-20 w-20 rounded-full bg-white/20 flex items-center justify-center p-2" >
+            <Image src={w2} alt="t"/>
+           </div>
+           </div>
           </div>
   
           {/* Step 3 */}
@@ -37,9 +46,11 @@ export default function HowItWorks() {
               <p className="font-medium text-[20px] max-lg:text-[10px]">Enjoy Hassle-Free Service</p>
               <p className="text-sm mt-2 opacity-90 max-lg:text-[8px] text-[14px]">Sit back and relax while our professional gets the job done.</p>
             </div>
-            <div className="w-full flex justify-end">
-              <div className="mt-4 h-20 w-20 rounded-full bg-white/20" />
-            </div>
+            <div className="w-full flex justify-end max-md:justify-center">
+           <div className="mt-4 h-20 w-20 rounded-full bg-white/20 flex items-center justify-center p-2" >
+            <Image src={w3} alt="t"/>
+           </div>
+           </div>
           </div>
         </div>
       </div>

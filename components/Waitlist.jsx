@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react'
 import Image from 'next/image'
+import las from '@/public/las.svg'
 import svg from '@/public/svg.svg'
 
 const Waitlist = () => {
@@ -56,10 +57,11 @@ const Waitlist = () => {
   }
 
   return (
-    <div className="w-full flex items-center justify-center p-[80px] max-lg:px-0 max-md:p-6 relative" id="waitlist">
-      <Image src={svg} alt="svg" className="absolute left-0 max-lg:hidden -z-0 -top-2" />
-      <div className="w-full wait rounded-[30px] px-[100px] py-20 max-lg:py-8 max-lg:px-6 max-md:px-4 max-lg:flex-col flex items-center z-[2] gap-[50px] max-lg:gap-6">
-        <h3 className="font-[800] text-[40px] text-white max-lg:text-[28px] max-md:text-[20px] text-center max-lg:text-center">
+    <div className="w-full flex items-center justify-center p-[80px] max-md:mt-[80px] max-lg:px-0 max-md:py-6 max-md-px-2 relative" id="waitlist">
+      <Image src={svg} alt="svg" className="absolute left-0 max-md:hidden -z-0 -top-2" />
+      <Image src={las} alt="svg" className="absolute left-0 md:lg:hidden -z-0 -top-16" />
+      <div className="w-full wait rounded-[30px] px-[100px] py-20 max-lg:py-8 max-lg:px-8 max-md:px-6 max-lg:flex-col flex items-center z-[2] gap-[50px] max-lg:gap-6">
+        <h3 className="font-[800] text-[40px] text-white max-lg:text-[28px] max-md:text-[20px] text-center max-md:text-start">
           Enjoy a <span className="text-[#94D227]">5%</span> discount on your first 3 orders when we launch.
         </h3>
         <form onSubmit={handleSubmit} className="relative w-[691px] h-[90px] max-lg:w-full max-lg:h-[70px]">
@@ -81,10 +83,10 @@ const Waitlist = () => {
           </button>
           <button 
             type="submit" 
-            className="text-white bg-[#F9A607] lg:hidden absolute top-1/2 -translate-y-1/2 px-6 py-3 max-lg:px-4 max-lg:py-2 rounded-[10px] right-4 hover:bg-[#e69806] transition-colors"
+            className="text-white bg-[#F9A607] lg:hidden absolute top-1/2 -translate-y-1/2 px-6 py-3 max-lg:px-4 max-lg:py-2 h-full rounded-[10px] right-0 hover:bg-[#e69806] transition-colors"
             disabled={isSubmitting}
           >
-            {isSubmitting ? '...' : 'Join'}
+            {isSubmitting ? 'Sending...' : 'Join the waitlist'}
           </button>
           
           {/* Status message */}
