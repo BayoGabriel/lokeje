@@ -12,11 +12,11 @@ import four from "@/public/4.svg";
 import five from "@/public/5.svg";
 
 const tooltipData = [
-  { src: one, text: "Find skilled tailors easily!", top: "-360px", left: "4px" },
-  { src: two, text: "Get high-quality service!", top: "-320px", left: "190px" },
-  { src: three, text: "Verified and trusted artisans!", top: "-200px", left: "600px" },
-  { src: four, text: "Hire in just 3 minutes!", top: "-320px", right: "150px" },
-  { src: five, text: "No more missed deadlines!", top: "-160px", right: "4px" },
+  { src: one, text: "Find skilled tailors easily!", top: "-360px", left: "auto", right: "4px", moveX: "-4px" },
+  { src: two, text: "Get high-quality service!", top: "-320px", left: "auto", right: "190px", moveX: "-190px" },
+  { src: three, text: "Verified and trusted artisans!", top: "-200px", left: "auto", right: "600px", moveX: "-600px" },
+  { src: four, text: "Hire in just 3 minutes!", top: "-320px", left: "150px", right: "auto", moveX: "150px" },
+  { src: five, text: "No more missed deadlines!", top: "-160px", left: "4px", right: "auto", moveX: "4px" },
 ];
 
 const Hero = () => {
@@ -45,25 +45,36 @@ const Hero = () => {
             className="absolute bottom-0 max-md:w-[80%] max-md:left-[50%] max-md:translate-x-[-50%]"
           />
 
-          {/* Floating Images with Tooltips */}
+          {/* Floating Images with Animation */}
           {tooltipData.map((item, index) => (
             <div
               key={index}
-              className="absolute max-md:hidden z-[2] animate-float group"
+              className="absolute max-md:hidden z-[2] floating-animation"
               style={{
                 top: item.top,
-                left: item.left || "auto",
-                right: item.right || "auto",
+                left: item.left !== "auto" ? item.left : "",
+                right: item.right !== "auto" ? item.right : "",
+                "--moveX": item.moveX, // Assigning dynamic value
               }}
             >
-              <Image src={item.src} alt={`icon-${index + 1}`} className="hover:scale-110 transition-transform" />
-              {/* <span className="absolute left-1/2 -translate-x-1/2 -top-24 w-40 px-3 py-1 bg-transparent text-primary text-sm rounded-md opacity-0 group-hover:opacity-100 transition duration-300">
-                {item.text}
-              </span> */}
+              <Image src={item.src} alt={`icon-${index + 1}`} className="transition-transform" />
             </div>
           ))}
         </div>
       </div>
+
+      {/* Custom Tailwind Styles for Animation */}
+      <style jsx>{`
+        @keyframes floatUpAndReverse {
+          0% { transform: translate(0, 0); }
+          50% { transform: translate(calc(var(--moveX) * -1), -100px); }
+          100% { transform: translate(0, 0); }
+        }
+
+        .floating-animation {
+          animation: floatUpAndReverse 6s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };
