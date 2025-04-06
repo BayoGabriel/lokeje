@@ -44,16 +44,14 @@ const Waitlist = () => {
     }
   }, [submitStatus])
 
-  // Validate email
+  
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   }
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault()
     
-    // Email validation
     if (!email || !isValidEmail(email)) {
       setSubmitStatus({
         success: false,
@@ -160,8 +158,7 @@ const Waitlist = () => {
           >
             {isSubmitting ? '...' : 'Join'}
           </motion.button>
-          
-          {/* Status message with animation */}
+
           {submitStatus && (
             <motion.div 
               className={`absolute -bottom-8 left-0 text-sm ${submitStatus.success ? 'text-green-400' : 'text-red-400'}`}
