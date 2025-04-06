@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import hm from "@/public/hm.svg";
-import { FaGoogle } from "react-icons/fa";
+import { FaPinterestP } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -25,11 +25,11 @@ export default function Footer() {
       {/* Social Media Icons */}
       <div className="flex items-center gap-4 max-sm:gap-3 max-sm:mt-4">
         {[
-          { icon: <FaXTwitter />, link: "#" },
-          { icon: <FaGoogle />, link: "#" },
-          { icon: <FaFacebookF />, link: "#" },
-          { icon: <IoLogoInstagram />, link: "#" },
-          { icon: <FaLinkedinIn />, link: "#" }
+          { icon: <FaXTwitter />, link: "https://x.com/_Lokraft" },
+          { icon: <FaPinterestP />, link: "https://www.pinterest.com/Lokraft1/" },
+          { icon: <FaFacebookF />, link: "https://web.facebook.com/lokraft" },
+          { icon: <IoLogoInstagram />, link: "https://www.instagram.com/_lokraft/" },
+          { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/company/lokraft/about/?viewAsMember=true" }
         ].map((item, index) => (
           <Link key={index} href={item.link} className="rounded-full border-white text-white border p-2 flex items-center justify-center w-10 h-10">
             {item.icon}

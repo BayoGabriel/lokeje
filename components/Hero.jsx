@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import greenbg from "@/public/herobg.svg";
 import heroImage from "@/public/HeroImage.png";
@@ -27,76 +28,177 @@ const mobileTooltip = [
 ];
 
 const Hero = () => {
+  // Animation variants
+  const headerVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
+
+  const descriptionVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.7, delay: 0.3, ease: "easeOut" }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.5, delay: 0.6, ease: "easeOut" }
+    },
+    hover: { 
+      scale: 1.05,
+      backgroundColor: "#E97124",
+      transition: { duration: 0.2 }
+    }
+  };
+
+  const heroImageVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 1, delay: 0.7, ease: "easeOut" }
+    }
+  };
+
+  const floatingIconVariants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: (i) => ({ 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        delay: 1 + (i * 0.2), 
+        ease: "easeOut" 
+      }
+    })
+  };
+
   return (
-    <div className="flex flex-col w-full min-h-screen mt-10 max-lg:my-2">
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col w-full min-h-screen mt-10 max-lg:my-2"
+    >
       <div className="w-full flex flex-col items-center justify-center max-lg:gap-4 gap-8 my-10">
-        <h1 className="text-[114px] text-[#282928] tracking-[0px] font-bold text-center leading-[1em] max-md:text-[60px] max-sm:text-[30px]">
-          Find A Trusted <br /> <span className="text-[#02846B]">Tailor</span> Near You!
-        </h1>
-        <p className="text-[22px] lg:max-w-[478px] max-lg:px-4 text-center leading-[33px] text-[#282928] tracking-[0] max-md:text-[18px] max-sm:text-[16px]">
-          Tired of unreliable artisans, inconsistent work quality, or missed deadlines? Hire verified skilled workers in 3 minutes and 5 clicks.
-        </p>
-        <Link
-          href="#waitlist"
-          className="bg-[#F9A607] px-8 py-3 rounded-[10px] text-white hover:bg-primary animate-pulse ease-in-out max-sm:px-6 max-sm:py-2"
+        <motion.h1 
+          variants={headerVariants}
+          className="text-[114px] text-[#282928] tracking-[0px] font-bold text-center leading-[1em] max-md:text-[60px] max-sm:text-[30px]"
         >
-          Get Started
-        </Link>
+          Find A Trusted <br /> <span className="text-[#02846B]">Tailor</span> Near You!
+        </motion.h1>
+        
+        <motion.p 
+          variants={descriptionVariants}
+          className="text-[22px] lg:max-w-[478px] max-lg:px-4 text-center leading-[33px] text-[#282928] tracking-[0] max-md:text-[18px] max-sm:text-[16px]"
+        >
+          Tired of unreliable artisans, inconsistent work quality, or missed deadlines? Hire verified skilled workers in 3 minutes and 5 clicks.
+        </motion.p>
+        
+        <motion.div
+          variants={buttonVariants}
+          whileHover="hover"
+        >
+          <Link
+            href="#waitlist"
+            className="bg-[#F9A607] px-8 py-3 rounded-[10px] text-white hover:bg-primary ease-in duration-75 max-sm:px-6 max-sm:py-2"
+          >
+            Get Started
+          </Link>
+        </motion.div>
       </div>
+      
       <div className="w-full px-[80px] max-md:mt-[150px] max-lg:mt-0 mt-[250px] max-md:px-[40px] max-sm:px-[20px]">
         <div className="w-full relative">
-          <Image src={greenbg} alt="greenbg" className="w-full object-contain" />
-          <Image
-            src={heroImage}
-            alt="hero"
-            className="absolute bottom-0 max-md:w-[80%] max-md:left-[50%] max-md:translate-x-[-50%]"
-          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <Image src={greenbg} alt="greenbg" className="w-full object-contain" />
+          </motion.div>
+          
+          <motion.div
+            variants={heroImageVariants}
+            className="absolute bottom-0 w-full"
+          >
+            <Image
+              src={heroImage}
+              alt="hero"
+              className="w-full h-full"
+            />
+          </motion.div>
 
           {/* Floating Images with Animation */}
           {tooltipData.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              custom={index}
+              variants={floatingIconVariants}
               className="absolute max-md:hidden z-[-2] floating-animation"
               style={{
                 top: item.top,
                 left: item.left !== "auto" ? item.left : "",
                 right: item.right !== "auto" ? item.right : "",
-                "--moveX": item.moveX, // Assigning dynamic value
+                "--moveX": item.moveX,
               }}
             >
-              <Image src={item.src} alt={`icon-${index + 1}`} className="transition-transform" />
-            </div>
+              <motion.div
+                animate={{ 
+                  y: [0, -20, 0],
+                  x: [0, item.moveX === "0px" ? 0 : parseInt(item.moveX) > 0 ? 20 : -20, 0],
+                  rotate: [0, item.moveX === "0px" ? 0 : parseInt(item.moveX) > 0 ? 5 : -5, 0]
+                }}
+                transition={{ 
+                  duration: 5 + index, 
+                  repeat: Infinity,
+                  ease: "easeInOut" 
+                }}
+              >
+                <Image src={item.src} alt={`icon-${index + 1}`} className="transition-transform" />
+              </motion.div>
+            </motion.div>
           ))}
+          
           {mobileTooltip.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="absolute h-2 md:hidden z-[-2] floating-animation"
+              custom={index}
+              variants={floatingIconVariants}
+              className="absolute h-2 md:hidden z-[-2]"
               style={{
                 top: item.top,
                 left: item.left !== "auto" ? item.left : "",
                 right: item.right !== "auto" ? item.right : "",
-                "--moveX": item.moveX, // Assigning dynamic value
               }}
             >
-              <Image src={item.src} alt={`icon-${index + 1}`} className="transition-transform" />
-            </div>
+              <motion.div
+                animate={{ 
+                  y: [0, -10, 0],
+                  x: [0, parseInt(item.moveX) > 0 ? 10 : -10, 0]
+                }}
+                transition={{ 
+                  duration: 4 + index, 
+                  repeat: Infinity,
+                  ease: "easeInOut" 
+                }}
+              >
+                <Image src={item.src} alt={`icon-${index + 1}`} className="transition-transform" />
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
-
-      {/* Custom Tailwind Styles for Animation */}
-      <style jsx>{`
-        @keyframes floatUpAndReverse {
-          0% { transform: translate(0, 0); }
-          50% { transform: translate(calc(var(--moveX) * -1), -100px); }
-          100% { transform: translate(0, 0); }
-        }
-
-        .floating-animation {
-          animation: floatUpAndReverse 12s ease-in-out infinite;
-        }
-      `}</style>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import lbg from "@/public/logobg.svg"
-import logo from "@/public/lokraft.png"
+import logo from "@/public/lokraftlogo.svg"
 import Image from 'next/image'
 
 const Navigation = () => {
@@ -10,7 +10,7 @@ const Navigation = () => {
       <Image 
         src={logo} 
         alt='logo' 
-        className='absolute top-1/2 left-1/2 max-lg:h-[3em] -translate-x-1/2 -translate-y-1/2 z-10'
+        className='absolute top-1/2 left-1/2 max-lg:h-[3em] h-[10em] -translate-x-1/2 -translate-y-1/2 z-10'
       />
     </div>
   )

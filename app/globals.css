@@ -13,7 +13,7 @@
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 40s ease-in-out infinite;
 }
 /* Custom scrollbar */
 ::-webkit-scrollbar {
