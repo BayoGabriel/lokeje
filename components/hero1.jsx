@@ -17,9 +17,9 @@ const tooltipColors = [
 ]
 
 const tooltipData = [
-  { text: "Fumigation", top: "-560px", left: "auto", right: "45px", moveX: "1000px" },
+  { text: "Plumber", top: "-560px", left: "auto", right: "45px", moveX: "1000px" },
   { text: "Plumber", top: "-160px", left: "auto", right: "60px", moveX: "1000px" },
-  { text: "Cleaner", top: "-360px", left: "auto", right: "4px", moveX: "1000px" },
+  { text: "Plumber", top: "-360px", left: "auto", right: "4px", moveX: "1000px" },
   { text: "Technician", top: "-320px", left: "auto", right: "190px", moveX: "1000px" },
   { text: "Hair Stylist", top: "-100px", left: "auto", right: "600px", moveX: "0px" },
   { text: "Fashion Designer", top: "-200px", left: "auto", right: "600px", moveX: "0px" },
