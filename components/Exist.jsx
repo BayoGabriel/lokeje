@@ -81,7 +81,7 @@ const Exist = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-[55px] font-bold text-[#E97124] text-center mb-20 max-lg:mb-10 uppercase max-lg:text-[24px]"
+        className="text-[55px] font-bold text-[#E97124] text-center mb-20 max-lg:mb-2 uppercase max-lg:text-[24px]"
       >
         We exist to
       </motion.h2>
