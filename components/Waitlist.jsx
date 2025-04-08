@@ -25,7 +25,6 @@ const Waitlist = () => {
     setIsSubmitting(true)
 
     try {
-      // Replace this URL with your actual Google Form submission URL
       const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdWcoZ5-yjpITRvxZfSNcHklbQ2rwBK_4ARc7gQOeRnNIitRA/formResponse'
       
       // Replace 'entry.123456789' with your actual form field entry ID
