@@ -26,20 +26,16 @@ const Waitlist = () => {
 
     try {
       const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdWcoZ5-yjpITRvxZfSNcHklbQ2rwBK_4ARc7gQOeRnNIitRA/formResponse'
-      
-      // Replace 'entry.123456789' with your actual form field entry ID
+
       const formData = new FormData()
       formData.append('entry.123456789', email)
-      
-      // Use fetch to submit the form
+
       const response = await fetch(googleFormUrl, {
         method: 'POST',
         body: formData,
-        mode: 'no-cors' // Google Forms requires no-cors mode
+        mode: 'no-cors' 
       })
       
-      // Since we're using no-cors, we can't actually check the response status
-      // We'll assume it was successful
       setSubmitStatus({
         success: true,
         message: 'Thank you for joining our waitlist!'
@@ -88,7 +84,6 @@ const Waitlist = () => {
             {isSubmitting ? 'Sending...' : 'Join the waitlist'}
           </button>
           
-          {/* Status message */}
           {submitStatus && (
             <div className={`absolute -bottom-8 left-0 text-sm ${submitStatus.success ? 'text-green-400' : 'text-red-400'}`}>
               {submitStatus.message}

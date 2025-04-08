@@ -73,7 +73,7 @@ export default function HowItWorks() {
         </motion.div>
   
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:px-[80px] px-2">
-          {/* Step 1 */}
+         
           <motion.div 
             custom={0}
             variants={cardVariants}
@@ -117,7 +117,6 @@ export default function HowItWorks() {
             </div>
           </motion.div>
   
-          {/* Step 2 */}
           <motion.div 
             custom={1}
             variants={cardVariants}
@@ -161,7 +160,6 @@ export default function HowItWorks() {
             </div>
           </motion.div>
   
-          {/* Step 3 */}
           <motion.div 
             custom={2}
             variants={cardVariants}

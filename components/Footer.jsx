@@ -21,7 +21,6 @@ export default function Footer() {
         </div>  
       </div>
 
-      {/* Social Media Icons */}
       <div className="flex items-center gap-4 max-sm:gap-3 max-sm:mt-4">
         {[
           { icon: <FaXTwitter />, link: "https://x.com/_Lokraft" },

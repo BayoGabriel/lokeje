@@ -12,15 +12,10 @@ import e4 from "@/public/e4.svg"
 import { motion, AnimatePresence } from "framer-motion"
 
 const Exist = () => {
-  // State to track which accordion item is open
   const [openItem, setOpenItem] = useState(null)
-
-  // Toggle accordion item with useCallback to prevent unnecessary re-renders
   const toggleItem = useCallback((index) => {
     setOpenItem((prevOpenItem) => (prevOpenItem === index ? null : index))
   }, [])
-
-  // Accordion content
   const accordionItems = [
     {
       title: "Give you peace of mind",
@@ -43,8 +38,6 @@ const Exist = () => {
       icon: e4,
     },
   ]
-
-  // Animation variants
   const accordionVariants = {
     hidden: { opacity: 0, height: 0 },
     visible: {
@@ -86,7 +79,6 @@ const Exist = () => {
         We exist to
       </motion.h2>
 
-      {/* Desktop view with accordion and image */}
       <div className="w-full max-md:hidden flex items-start justify-between max-lg:flex-col gap-8">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -154,7 +146,6 @@ const Exist = () => {
         </motion.div>
       </div>
 
-      {/* Mobile view with cards */}
       <div className="w-full md:hidden grid my-4 grid-cols-2 gap-3">
         {accordionItems.map((item, index) => (
           <motion.div

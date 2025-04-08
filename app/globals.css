@@ -30,7 +30,6 @@
 .animate-float {
   animation: float 40s ease-in-out infinite;
 }
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -54,8 +53,6 @@
   background-image: url(../public/rect.svg);
   background-repeat: no-repeat;
 }
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }

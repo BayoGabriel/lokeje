@@ -32,19 +32,18 @@ const professions = ["Plumber", "Tailor", "Photographer", "Baker", "Tiler"]
 
 const Hero = () => {
   const [profession, setProfession] = useState("Tailor")
-  const [index, setIndex] = useState(1) // Start with Tailor (index 1)
+  const [index, setIndex] = useState(1) 
 
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (index + 1) % professions.length
       setIndex(nextIndex)
       setProfession(professions[nextIndex])
-    }, 3000) // Change every 3 seconds
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [index])
 
-  // Animation variants
   const headerVariants = {
     hidden: { opacity: 0, y: -50 },
     visible: {
@@ -99,11 +98,10 @@ const Hero = () => {
     }),
   }
 
-  // Simple fade animation for the profession text
   const professionVariants = {
     animate: {
       opacity: 1,
-      transition: { duration: 1.2, ease: "easeInOut" },
+      transition: { duration: 2.8, ease: "easeInOut" },
     },
   }
 
@@ -151,14 +149,13 @@ const Hero = () => {
       <div className="w-full px-[80px] max-xl:px-[60px] max-lg:px-[40px] max-md:px-[20px] max-sm:px-[10px] max-md:mt-[100px] max-lg:mt-[150px] mt-[200px] transition-all duration-300">
         <div className="w-full relative">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.5 }}>
-            <Image src={greenbg || "/placeholder.svg"} alt="greenbg" className="w-full object-contain" />
+            <Image src={greenbg} alt="greenbg" className="w-full object-contain" />
           </motion.div>
 
           <motion.div variants={heroImageVariants} className="absolute bottom-0 w-full">
-            <Image src={heroImage || "/placeholder.svg"} alt="hero" className="w-full h-full" />
+            <Image src={heroImage} alt="hero" className="w-full h-full" />
           </motion.div>
 
-          {/* Floating Images with Animation - Desktop */}
           {tooltipData.map((item, index) => (
             <motion.div
               key={index}
@@ -185,7 +182,7 @@ const Hero = () => {
                 }}
               >
                 <Image
-                  src={item.src || "/placeholder.svg"}
+                  src={item.src}
                   alt={`icon-${index + 1}`}
                   className="transition-transform max-lg:w-[80%] max-lg:h-[80%] max-lg:object-contain"
                 />
@@ -193,7 +190,6 @@ const Hero = () => {
             </motion.div>
           ))}
 
-          {/* Floating Images with Animation - Mobile */}
           {mobileTooltip.map((item, index) => (
             <motion.div
               key={index}
@@ -218,7 +214,7 @@ const Hero = () => {
                 }}
               >
                 <Image
-                  src={item.src || "/placeholder.svg"}
+                  src={item.src}
                   alt={`icon-${index + 1}`}
                   className="transition-transform max-sm:w-[70%] max-sm:h-[70%] max-sm:object-contain"
                 />
