@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Navigation = () => {
   return (
-    <div className='w-full max-lg:h-[80px] lg:h-[120px] bg-[#02846B] flex items-center justify-center relative'>
+    <div className='w-full max-lg:h-[60px] lg:h-[120px] bg-[#02846B] flex items-center justify-center relative'>
       <Image src={lbg} className='w-full h-full max-md:hidden object-contain' alt="lf"/>
       <Image 
         src={logo} 

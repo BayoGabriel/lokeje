@@ -21,21 +21,25 @@ const Exist = () => {
       title: "Give you peace of mind",
       content: "Every artisan in our network is thoroughly vetted for skills, experience, and professionalism.",
       icon: e1,
+      bgColor: "bg-[#E8F0EE]", // Light mint/teal
     },
     {
       title: "Save your precious time",
       content: "Our professionals are committed to delivering quality work within agreed timelines.",
       icon: e3,
+      bgColor: "bg-[#FAEEE5]", // Light peach/orange
     },
     {
       title: "Offer value for your hard-earned money",
       content: "No hidden costs, no surprises. Get clear and fair pricing for every project upfront.",
       icon: e2,
+      bgColor: "bg-[#FAEEE5]", // Light peach/orange
     },
     {
       title: "Ensure your safety",
       content: "We conduct background checks to ensure you're working with trustworthy individuals.",
       icon: e4,
+      bgColor: "bg-[#E8F0EE]", // Light mint/teal
     },
   ]
   const accordionVariants = {
@@ -74,7 +78,7 @@ const Exist = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-[55px] font-bold text-[#E97124] text-center mb-20 max-lg:mb-2 uppercase max-lg:text-[24px]"
+        className="text-[55px] font-bold text-[#E97124] text-center mb-20 max-lg:mb-6 uppercase max-lg:text-[24px]"
       >
         We exist to
       </motion.h2>
@@ -146,7 +150,8 @@ const Exist = () => {
         </motion.div>
       </div>
 
-      <div className="w-full md:hidden grid my-4 grid-cols-2 gap-3">
+      {/* Mobile version with accordion functionality */}
+      <div className="w-full md:hidden grid my-4 grid-cols-2 gap-4">
         {accordionItems.map((item, index) => (
           <motion.div
             key={index}
@@ -154,22 +159,22 @@ const Exist = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.1 * index }}
             viewport={{ once: true }}
-            className={`${index === 0 ? "bg-[#054F43]" : "bg-[#E97124]"} rounded-[12px] items-start flex p-4 flex-col`}
+            className={`${item.bgColor} rounded-[12px] p-5 flex flex-col items-start cursor-pointer`}
             onClick={() => toggleItem(index)}
             layout
           >
-            <div className="rounded-full bg-white p-3 mb-4 flex items-center justify-center">
+            <div className="rounded-full bg-white p-3 mb-4 flex items-center justify-center w-12 h-12">
               <Image src={item.icon || "/placeholder.svg"} alt={`icon-${index}`} width={24} height={24} />
             </div>
-            <span className="text-[12px] text-black font-medium">{item.title}</span>
+            <span className="text-[14px] text-[#282928] font-medium leading-tight">{item.title}</span>
 
             <AnimatePresence initial={false}>
               {openItem === index && (
-                <motion.p
+                <motion.div
                   key={`mobile-content-${index}`}
                   initial={{ opacity: 0, height: 0 }}
                   animate={{
-                    opacity: 0.9,
+                    opacity: 1,
                     height: "auto",
                     transition: {
                       height: { type: "spring", stiffness: 300, damping: 30 },
@@ -184,10 +189,10 @@ const Exist = () => {
                       opacity: { duration: 0.1 },
                     },
                   }}
-                  className="text-black text-[10px] mt-2 opacity-90 overflow-hidden"
+                  className="overflow-hidden mt-2"
                 >
-                  {item.content}
-                </motion.p>
+                  <p className="text-[12px] text-[#282928] opacity-80">{item.content}</p>
+                </motion.div>
               )}
             </AnimatePresence>
           </motion.div>
@@ -198,4 +203,3 @@ const Exist = () => {
 }
 
 export default Exist
-

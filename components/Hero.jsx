@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 import greenbg from "@/public/herobg.svg"
 import heroImage from "@/public/HeroImage.png"
@@ -22,9 +22,9 @@ const tooltipData = [
 ]
 
 const mobileTooltip = [
-  { src: one, text: "Find skilled tailors easily!", top: "-40px", left: "auto", right: "4px", moveX: "100px" },
+  { src: one, text: "Find skilled tailors easily!", top: "-190px", left: "auto", right: "4px", moveX: "100px" },
   { src: two, text: "Get high-quality service!", top: "-120px", left: "auto", right: "4px", moveX: "100px" },
-  { src: four, text: "Hire in just 3 minutes!", top: "-1px", left: "0px", right: "auto", moveX: "-100px" },
+  { src: four, text: "Hire in just 3 minutes!", top: "-190px", left: "0px", right: "auto", moveX: "-100px" },
   { src: five, text: "No more missed deadlines!", top: "-110px", left: "4px", right: "auto", moveX: "-100px" },
 ]
 
@@ -32,7 +32,7 @@ const professions = ["Plumber", "Tailor", "Photographer", "Baker", "Tiler"]
 
 const Hero = () => {
   const [profession, setProfession] = useState("Tailor")
-  const [index, setIndex] = useState(1) 
+  const [index, setIndex] = useState(1)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -99,9 +99,19 @@ const Hero = () => {
   }
 
   const professionVariants = {
-    animate: {
+    enter: {
+      y: -50,
+      opacity: 0,
+    },
+    center: {
+      y: 0,
       opacity: 1,
-      transition: { duration: 2.8, ease: "easeInOut" },
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    exit: {
+      y: 50,
+      opacity: 0,
+      transition: { duration: 0.5, ease: "easeIn" },
     },
   }
 
@@ -109,7 +119,7 @@ const Hero = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col w-full min-h-screen mt-10 max-lg:mt-6 max-md:mt-4 max-sm:mt-2"
+      className="flex flex-col w-full lg:min-h-screen mt-10 max-lg:mt-6 max-md:mt-4 max-sm:mt-2"
     >
       <div className="w-full flex flex-col items-center justify-center max-lg:gap-4 gap-8 my-10 max-md:my-6 max-sm:my-4 px-4">
         <motion.h1
@@ -117,15 +127,19 @@ const Hero = () => {
           className="text-[114px] text-[#282928] tracking-[0px] font-bold text-center leading-[1.1em] max-xl:text-[90px] max-lg:text-[70px] max-md:text-[50px] max-sm:text-[36px] max-xs:text-[28px]"
         >
           Find A Trusted <br />
-          <motion.span
-            key={profession}
-            initial={{ opacity: 0 }}
-            animate={professionVariants.animate}
-            className="text-[#02846B] inline-block min-h-[1.2em]"
-          >
-            {profession}
-          </motion.span>{" "}
-          <span className="whitespace-nowrap">Near You!</span>
+          <AnimatePresence initial={false} mode="wait">
+            <motion.span
+              key={profession}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              variants={professionVariants}
+              className="text-[#02846B] inline-block min-h-[1.2em]"
+            >
+              {profession}
+            </motion.span>
+          </AnimatePresence>{" "}
+          <span className="whitespace-nowrap ease-in duration-75">Near You!</span>
         </motion.h1>
 
         <motion.p
@@ -146,7 +160,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="w-full px-[80px] max-xl:px-[60px] max-lg:px-[40px] max-md:px-[20px] max-sm:px-[10px] max-md:mt-[100px] max-lg:mt-[150px] mt-[200px] transition-all duration-300">
+      <div className="w-full px-[80px] max-xl:px-[60px] max-lg:px-[40px] max-md:px-[20px] max-sm:px-[10px] max-md:mt-[200px] max-lg:mt-[150px] mt-[200px] transition-all duration-300">
         <div className="w-full relative">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.5 }}>
             <Image src={greenbg} alt="greenbg" className="w-full object-contain" />
